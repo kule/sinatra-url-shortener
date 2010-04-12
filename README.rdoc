@@ -2,11 +2,13 @@
 
 == Requirements
 
-mysql/postgres database [Only postgres has been tested but should work in either]
-sinatra-activerecord gem
-base58 gem
+* mysql/postgres database [Only postgres has been tested but should work in either]
+* sinatra gem
+* sinatra-activerecord gem
+* base58 gem
 
 == Installation
+  gem install sinatra
   gem install sinatra-activerecord
   gem install base58
   
@@ -51,5 +53,5 @@ Copyright (c) 2010 Luke Pearce. See LICENSE for details.
 
 == Contact
 
-* {github.com/kule} [http://github.com/kule]
-* {kulesolutions.com} [http://www.kulesolutions.com]
+* http://github.com/kule
+* http://www.kulesolutions.com
