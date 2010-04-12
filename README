@@ -1,0 +1,55 @@
+= sinatra-url-shortener
+
+== Requirements
+
+mysql/postgres database [Only postgres has been tested but should work in either]
+sinatra-activerecord gem
+base58 gem
+
+== Installation
+  gem install sinatra-activerecord
+  gem install base58
+  
+  git clone git://github.com/kule/sinatra-url-shortener.git
+  cd sinatra-url-shortener
+
+Modify settings.rb to match your database. The default is "url_shortener_development".
+
+  rake db:migrate
+  ruby url_shortener.rb
+
+== Usage
+
+This is a very basic example app using Sinatra which I used to see how it all works.  It allows you to submit a url, it will return a shortened version of it, any time that url is used the referrer is logged to the database.
+
+The default setup uses basic auth for posting urls and the admin pages.
+
+Login: admin
+Password: secret
+
+You can change these settings.rb or remove them entirely by removing the login_required lines in url_shortener.rb
+
+Goto /admin to see all the links you've created
+
+Tests are in rspec
+
+  spec spec/url_shortener_spec.rb
+
+== Deployment
+
+There is a config.ru file, a .gems file and the production settings are ready to be used for heroku so you should be good to go if you wanted to deploy to heroku.  I wouldn't recommend going live without some changes though :)
+
+== TODO
+
+* At time of writing (12th Apr 2010) the sinatra-authorization gem doesn't work with Sinatra 1.0 (fixed and pull request sent, see kule/sinatra-authorization). In the meantime I've created a copy in lib/authorization.rb.
+* Admin pages require pagination
+* Make Basic Auth optional
+
+== Copyright
+
+Copyright (c) 2010 Luke Pearce. See LICENSE for details.
+
+== Contact
+
+* {github.com/kule} [http://github.com/kule]
+* {kulesolutions.com} [http://www.kulesolutions.com]

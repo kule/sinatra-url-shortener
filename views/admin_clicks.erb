@@ -1,0 +1,22 @@
+<h1>Referrers for <%=@short_url.key%></h1>
+<p><%=link_to('Back to short links', '/admin')%></p>
+<p><strong>Url:</strong> <%=link_to(@short_url.url, @short_url.url)%></p>
+
+<% if @short_url.clicks.empty? %>
+	<p>This link hasn't been used yet!</p>
+<% else %>
+	<table>
+		<tr>
+			<th>Referrer</th>
+			<th>Date Occurred</th>
+		</tr>
+		<% @short_url.clicks.each do |click| %>
+		<tr class="<%=cycle%>">
+			<td><%=truncate(click.referrer, 60)%> <%=link_to('go', click.referrer)%></td>
+			<td><%=display_datetime(click.created_at)%></td>
+		</tr>
+		<% end %>
+	</table>
+
+	<p><%=link_to('Back to short links', '/admin')%></p>
+<% end %>

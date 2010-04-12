@@ -1,0 +1,22 @@
+<h1>Short Urls</h1>
+
+<% if @short_urls.empty? %>
+	<p>There are no short urls yet!</p>
+<% else %>
+	<table>
+		<tr>
+			<th>Action</th>
+			<th>Short Url</th>
+			<th>Url</th>
+			<th>Date Added</th>
+		</tr>
+		<% @short_urls.each do |short_url| %>
+		<tr class="<%=cycle%>">
+			<td><%=link_to('View Referrers', "/admin/clicks/#{short_url.key}")%></td>
+			<td><%=short_url_from_key(short_url.key)%></td>
+			<td><%=truncate(short_url.url, 40)%> <%=link_to('go', short_url.url)%></td>
+			<td><%=display_datetime(short_url.created_at)%></td>
+		</tr>
+		<% end %>
+	</table>
+<% end %>

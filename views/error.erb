@@ -1,0 +1,7 @@
+<h1>Error!</h1>
+<p>Unfortunately there was a problem creating your short url:</p>
+<div class="errors">
+	<%=display_errors(@short_url)%> 
+</div>
+
+<%=erb(:form, :layout => false) %>
